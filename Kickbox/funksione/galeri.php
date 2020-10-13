@@ -1,19 +1,17 @@
-
 <?php
 $statusMsg = '';
 
-if(isset($_POST["krijoPROD"])){
-    krijoP();
+if(isset($_POST["krijoFOTO"])){
+    krijoFoto();
 }
 
-function krijoP() {
+function krijoFoto() {
     global $conn;
     // File upload path
     $targetDir = "./images/";
     $fileName = basename($_FILES["file"]["name"]);
     $targetFilePath = $targetDir . $fileName;
-    $emri = $_POST['emri'];
-    $cmimi = $_POST['cmimi'];
+   
 
 
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -25,10 +23,9 @@ function krijoP() {
             // Upload file to server
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
                 // Insert image file Foto_prod into database
-                echo $emri;
-                echo $cmimi;
+               
                 echo $targetFilePath;
-                $insert = $conn->query("INSERT into produkte (Emri_prod, Cmimi_prod, Foto_prod) VALUES ('$emri', '$cmimi', '$targetFilePath')");
+                $insert = $conn->query("INSERT into galeria (Foto) VALUES ('$targetFilePath')");
           
                 if ($insert) {
                     $statusMsg = "The file ".$fileName. " has been uploaded successfully.";

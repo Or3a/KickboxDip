@@ -554,6 +554,11 @@ function krijoKlase()
 
 
 
+
+
+
+
+
 // escape string
 function e($val)
 {

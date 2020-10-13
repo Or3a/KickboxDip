@@ -9,19 +9,13 @@
             </span>
             <!-- Add spacer, to align navigation to the right in desktop -->
             <div class="kickbox-header-spacer mdl-layout-spacer"></div>
-            <div class="kickbox-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
-                <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
-                    <i class="material-icons">search</i>
-                </label>
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" id="search-field">
-                </div>
-            </div>
+            
             <!-- Navigation -->
             <div class="kickbox-navigation-container">
                 <nav class="kickbox-navigation mdl-navigation">
                     <a class="mdl-navigation__link mdl-typography--text-uppercase" href="dyqan.php">Dyqan</a>
-                    <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Shporta</a>
+                    <i class="material-icons ">shopping_cart</i> 
+                    
                     <!--<a class="mdl-navigation__link mdl-typography--text-uppercase" href="regjistrim.php">Regjistro</a> -->
                     <?php if (!isLogged()) : { ?>
                             <a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Login</a>
@@ -58,11 +52,15 @@
             <?php if (isLoggedADM()) : { ?> 
             <a class="mdl-navigation__link" href="profiliAdm.php">Profili</a>
             <a class="mdl-navigation__link" href="trajneret.php">Trajneret</a>
+            <a class="mdl-navigation__link" href="produkte.php">Produkte</a>
+            <a class="mdl-navigation__link" href="fotot.php">Foto</a>
+           <!-- <a class="mdl-navigation__link" href="produkte.php">Produkte</a> -->
             <?php } endif ?>
             <?php if (isLoggedTR()) : { ?> 
             <a class="mdl-navigation__link" href="profili.php">Profili</a>
             <a class="mdl-navigation__link" href="sportistet.php">Sportistet</a>
             <a class="mdl-navigation__link" href="klasa.php">Klasat</a>
+
             <?php } endif ?>
             <?php if (isLoggedSP()) : { ?> 
             <a class="mdl-navigation__link" href="profili.php">Profili</a>
