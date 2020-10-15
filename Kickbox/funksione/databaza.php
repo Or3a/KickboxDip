@@ -276,6 +276,11 @@ function regjistroSportist()
 
 
 if (isset($_GET['logout'])) {
+    $_SESSION["shporta"] = NULL;
+    session_unset($_SESSION["shporta"]);
+    session_destroy($_SESSION["shporta"]);
+    //$_SESSION['CMIM_T'] = .0;
+    //$_SESSION['CMIM_T'] = .0;
     logout();
 }
 
@@ -562,6 +567,7 @@ function krijoKlase()
 // escape string
 function e($val)
 {
+    global $total;
     global $conn;
     return mysqli_real_escape_string($conn, trim($val));
 }
