@@ -13,7 +13,7 @@
             <!-- Navigation -->
             <div class="kickbox-navigation-container">
                 <nav class="kickbox-navigation mdl-navigation">
-                    <a class="mdl-navigation__link mdl-typography--text-uppercase" href="dyqan.php">Dyqan</a>
+                    <a class="mdl-navigation__link mdl-typography--text-uppercase" href="Shporta.php">Dyqan</a>
                     <i class="material-icons ">shopping_cart</i> 
                     
                     <!--<a class="mdl-navigation__link mdl-typography--text-uppercase" href="regjistrim.php">Regjistro</a> -->
