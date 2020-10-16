@@ -33,7 +33,6 @@
             foreach ($_SESSION["shporta"] as $keys => $value){
                 if ($value["product_id"] == $_GET["ID_produkte"]){
                     unset($_SESSION["shporta"][$keys]);
-                    echo '<script>alert("Produkti u hoq!")</script>';
                     echo '<script>window.location="Shporta.php"</script>';
                 }
             }
@@ -74,12 +73,15 @@ if(isset($_POST["porosit"])){
                 $item_quantity = strval($value['item_quantity']);
 
                 /* Fusim cdo produkt te fatures */
-                mysqli_query($conn, "INSERT INTO fatura_produkt(ID_fatura, ID_produkte, Sasia_produkt) VALUES ($lastFatureStr, '$product_id', '$item_quantity')");
+                mysqli_query($conn, "INSERT INTO fatura_produkt(ID_fatura, ID_produkte, Sasia_produkt) VALUES ('$lastFatureStr', '$product_id', '$item_quantity')");
             }
 
             $_SESSION['CMIM_T'] = NULL;
+            
+            echo '<script>alert("Blerja u krye me sukses!Faleminderit!")</script>';
+            echo '<script>window.location="Shporta.php"</script>';
+            
   
-
 }
 
 ?>

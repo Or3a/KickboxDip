@@ -1,9 +1,4 @@
 
-<?php
-ob_start();
-?>
-
-
 <!doctype html>
 <!--
   Material Design Lite
@@ -57,26 +52,32 @@ ob_start();
 body {
   margin: 0;
   padding: 0;
-  background: #263238;
+  background: #1b1b1b;
   font-size: 16px;
   font-weight: 300;
 }
 
-
-
 #login-box {
   position: relative;
-  margin: 4% auto;
-  width: 500px;
-  height: 200px;
+  margin: 5% auto;
+  width: 800px;
+  height: 480px;
   background: #e0e0e0;
   border-radius: 2px;
-  box-shadow:   9px 9px #263238, 13px 13px #c96f53, 8px 8px #e0e0e0 inset, 14px 14px #c96f53 inset;
-  padding: 50px;
+  box-shadow: 0 2px 4px #7f0000 inset;
 
   
 }
 
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 320px;
+  height: 480px;
+}
 
 h1 {
   margin: 0 0 20px 0;
@@ -84,11 +85,8 @@ h1 {
   font-size: 28px;
 }
 
-
-
-
-
-input[type="texti"]{
+input[type="texti"],
+input[type="password"] {
   display: block;
   box-sizing: border-box;
   margin-bottom: 20px;
@@ -104,25 +102,12 @@ input[type="texti"]{
   background: #e0e0e0;
 }
 
-.m {
- 
- font-family: 'Roboto', sans-serif;
- font-weight: 400;
- font-size: 15px;
- 
-
-}
-
-
-
-input[type="texti"]:focus{
+input[type="texti"]:focus,
+input[type="password"]:focus {
   border-bottom: 2px solid #16a085;
   color: #16a085;
   transition: 0.2s ease;
 }
-
-
-
 
 button[type="submit"] {
   margin-top: 28px;
@@ -152,39 +137,52 @@ button[type="submit"]:active {
   transition: 0.1s ease;
 }
 
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding-top: 100px;
+  padding-left:10px;
+  width: 470px;
+  height: 480px;
+  border-radius: 0 2px 2px 0;
+}
+
+
 
   </style>
 </head>
 
 <body>
 
-<?php include 'header.php'; ob_flush();?>
+    <?php include 'header.php'; ?>
 
-<?php include 'funksione/galeri.php'; ob_flush();?>
 
     
     <div id="login-box" >
-    <form action="fotot.php" method="post" enctype="multipart/form-data">
+    <form action="regjistrim.php" method="post">
+  <div class="left">
+    <h1>Regjistrim</h1>
 
-
-    <h1>Shto foto</h1>
-
-
-    <label for= "file">Zgjidh foto</label>
-    <input type="file" name="file"/> <br/>
-      <!--  <iframe src="https://media.giphy.com/media/NXx6K8Vy1Nc9q/giphy.gif" width="480" height="270" frameBorder="0" ></iframe>-->
-        <button type="submit" name="krijoFOTO" value="krijoFOTO" >Shto</button>
-
-  </form>
- 
-    </div>
-
-
-
-    </div>
+   <label for= "Username_adm"><input type="texti" name="Username_adm" placeholder="Username" /></label>
+   <label for= "Emer_adm"><input type="texti" name="Emer_adm" placeholder="Emri" /></label>
+   <label for= "Mbiemer_adm"><input type="texti" name="Mbiemer_adm" placeholder="Mbiemri" /></label>
+   <label for= "Email_adm"><input type="texti" name="Email_adm" placeholder="E-maili" /></label>
+   <label for= "Fjalekalim_adm"><input type="password" name="Fjalekalim_adm" placeholder="Fjalekalimi" /></label>
+   <label for= "Fjalekalim_adm-repeat"><input type="password" name="Fjalekalim_adm-repeat" placeholder="Perserit fjalekalimin" /></label>
+    
+    <button type="submit" name="regj" value="regj" >Regjistrohu</button>
   </div>
 
-
+  </form>
+  
+  <div class="right">
+    <br/>
+      <!--  <iframe src="https://media.giphy.com/media/NXx6K8Vy1Nc9q/giphy.gif" width="480" height="270" frameBorder="0" ></iframe>-->
+  </div>
+    </div>
+    
 
   <script src="../../material.min.js"></script>
 

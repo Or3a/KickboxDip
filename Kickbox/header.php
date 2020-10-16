@@ -52,6 +52,7 @@
             <?php if (isLoggedADM()) : { ?> 
             <a class="mdl-navigation__link" href="profiliAdm.php">Profili</a>
             <a class="mdl-navigation__link" href="trajneret.php">Trajneret</a>
+            <a class="mdl-navigation__link" href="blerje.php">Blerje ne Dyqan</a>
             <a class="mdl-navigation__link" href="produkte.php">Produkte</a>
             <a class="mdl-navigation__link" href="fotot.php">Foto</a>
            <!-- <a class="mdl-navigation__link" href="produkte.php">Produkte</a> -->

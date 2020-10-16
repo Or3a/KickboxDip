@@ -34,7 +34,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: #000a12;
+            background: #263238;
             font-size: 16px;
             font-weight: 300;
         }
@@ -51,7 +51,7 @@
             height: 400px;
             background: #e0e0e0;
             border-radius: 2px;
-            box-shadow: 9px 9px, 13px 13px #c96f53, 8px 8px #e0e0e0 inset, 14px 14px #c96f53 inset;
+            box-shadow: 9px 9px #263238, 13px 13px #c96f53, 8px 8px #e0e0e0 inset, 14px 14px #c96f53 inset;
 
         }
 

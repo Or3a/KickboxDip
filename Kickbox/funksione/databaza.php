@@ -392,7 +392,7 @@ function loginTR()
                     $_SESSION['tGrupmosha'] = $row['Grupmosha_tr'];
                     $_SESSION['tsuccess']  = "Jeni i loguar";
 
-                    header("Location: profiliAdm.php?login=mesukses");
+                    header("Location: profili.php?login=mesukses");
                     exit();
                 } else {
                     header("Location: login.php?error=pwdigabuar");
@@ -446,7 +446,7 @@ function loginSP()
                     $_SESSION['sMbiemer'] = $row['Mbiemer_sp'];
                     $_SESSION['ssuccess']  = "Jeni i loguar";
 
-                    header("Location: profiliAdm.php?login=mesukses");
+                    header("Location: profili.php?login=mesukses");
                     exit();
                 } else {
                     header("Location: login.php?error=pwdigabuar");
@@ -466,7 +466,7 @@ function logout()
     session_unset();
     session_destroy();
     //   unset($_SESSION['admini']);
-    header("location: profiliAdm.php?error=logout");
+    header("location: kryefaqja.php?error=logout");
     exit();
 }
 
@@ -554,6 +554,36 @@ function krijoKlase()
     mysqli_stmt_close($conn); //closing the statement
     mysqli_close($conn); //mbyll lidhjen me db
 }
+
+
+
+
+
+if (isset($_POST['dergoEmail'])){
+    emaili();
+}
+
+function emaili() {
+    $email_emer = $_POST['Emer_em'];
+    $email_email = $_POST['Email_em'];
+    $email_mesazhi = $_POST['Mszh_em'];
+
+    $permbajtja="From: $email_emer \n Message: $email_mesazhi";
+    $emailiIM = "oreakicaj@gmail.com";
+    $Titulli = "Nga kontakti i Kickbox";
+    $mailheader = "From: $email_email \r\n";
+    mail($emailiIM, $Titulli, $permbajtja, $mailheader) or die("Error!");
+    echo "Faleminderit!";
+}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -67,12 +67,11 @@ body {
 #login-box {
   position: relative;
   margin: 4% auto;
-  width: 500px;
-  height: 200px;
+  width: 700px;
+  height: 300px;
   background: #e0e0e0;
   border-radius: 2px;
   box-shadow:   9px 9px #263238, 13px 13px #c96f53, 8px 8px #e0e0e0 inset, 14px 14px #c96f53 inset;
-  padding: 50px;
 
   
 }
@@ -151,7 +150,47 @@ button[type="submit"]:active {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   transition: 0.1s ease;
 }
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 250px;
+  height: 300px;
+}
 
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  padding-right: 20px;
+  width: 400px;
+  height: 300px;
+  border-radius: 0 2px 2px 0;
+}
+
+table{
+  margin-top: 40px;
+  margin-left: auto;
+  margin-bottom: 40px;
+  margin-right: auto;
+  position: relative;
+  width: 700px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  box-shadow:   9px 9px #263238, 13px 13px #c96f53, 8px 8px #e0e0e0 inset, 14px 14px #c96f53 inset;
+
+}
+table thead {
+ 
+  background: #90a4ae;
+}
+ .rr {
+   background-color: #e0e0e0;
+ }
 
   </style>
 </head>
@@ -160,31 +199,80 @@ button[type="submit"]:active {
 
 <?php include 'header.php'; ob_flush();?>
 
-<?php include 'funksione/galeri.php'; ob_flush();?>
+<?php include 'funksione/mom.php'; ob_flush();?>
 
     
     <div id="login-box" >
-    <form action="fotot.php" method="post" enctype="multipart/form-data">
+    <form action="produkte.php" method="post" enctype="multipart/form-data">
 
+  <div class="left">
+    <h1>Shto produkt</h1>
 
-    <h1>Shto foto</h1>
+  
+   <label for= "emri"><input type="texti" name="emri" placeholder="Produkti" /></label>
+   <label for= "cmimi"><input type="texti" name="cmimi" placeholder="Cmimi" /></label>
+    
+    
+   </div>
 
-
+   <div class="right">
+    <br/><br/><br/>
     <label for= "file">Zgjidh foto</label>
     <input type="file" name="file"/> <br/>
       <!--  <iframe src="https://media.giphy.com/media/NXx6K8Vy1Nc9q/giphy.gif" width="480" height="270" frameBorder="0" ></iframe>-->
-        <button type="submit" name="krijoFOTO" value="krijoFOTO" >Shto</button>
-
+        <button type="submit" name="krijoPROD" value="krijoPROD" >Shto</button>
+  </div>
+    
+   
+ 
   </form>
  
     </div>
 
 
+    <table class="mdl-data-table";>
+  <thead>
+    
+      <!-- jo numerike, majtas -->
+      <th>ID</th>
+      <th class="mdl-data-table__cell--non-numeric">EMRI</th>
+      <th class="mdl-data-table__cell--non-numeric">CMIMI</th>
+      <th class="mdl-data-table__cell--non-numeric">FSHIJ</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+ <?php $result = mysqli_query($conn, "SELECT * FROM produkte");
+       while ($row = mysqli_fetch_array($result)) { ?>
+ 
+    <!-- Row 1 -->
+    <tr>
+      <!-- class "mdl-data-table__cell--non-numeric", align values to left -->
+      <td class = "rr"><?php echo $row['ID_produkte']; ?></td>
+      <td class="mdl-data-table__cell--non-numeric rr"><?php echo $row['Emri_prod']; ?></td>
+      <td class="mdl-data-table__cell--non-numeric rr"><?php echo $row['Cmimi_prod']; ?> Leke</td>
+      <td class="mdl-data-table__cell--non-numeric rr"><?php echo "<a href='fshij/fshiPROD.php?deletePROD=".$row['ID_produkte']."'>"; ?> 
+        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+          <i class="material-icons">delete</i>
+        </button></a>
+      </td>
+    </tr>
+      <tr><td></td><td class="mdl-data-table__cell--non-numeric" colspan = "3"><img src='<?php echo $row['Foto_prod']; ?>'></td></tr>
+      
+    
+    
+  <?php } mysqli_close($conn); ?>
+  
+    
+  </tbody>
+</table>
+    
 
+
+
+    <?php include 'footer.php'; ?>
     </div>
   </div>
-
-
 
   <script src="../../material.min.js"></script>
 
