@@ -14,8 +14,7 @@ if (isset($_POST['regjistro'])) {
     if (empty($username) || empty($emer) || empty($mbiemer) || empty($email) || empty($password) || empty($passwordRepeat)) {
         header("Location: regjistrim.php?error=emptyfields&Username_adm=" . $username . "&Email_adm=" . $email);
         exit();
-    } 
-    else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9*$/]", $username)) {
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9*$/]", $username)) {
         header("Location: regjistrim.php?error=invalidEmail_admUsername_adm");
         exit();
     }
@@ -68,4 +67,3 @@ if (isset($_POST['regjistro'])) {
     header("Location: regjistro.php");
     exit();
 }
-

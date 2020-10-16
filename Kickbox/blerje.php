@@ -60,40 +60,7 @@ ob_start();
       font-size: 16px;
       font-weight: 300;
     }
-
-
-    h1 {
-      margin: 0 0 20px 0;
-      font-weight: 300;
-      font-size: 28px;
-    }
-
-
-    table {
-     
-      border: none;
-      margin-top: 40px;
-      margin-left: auto;
-      margin-bottom: 40px;
-      margin-right: auto;
-      position: relative;
-      width: 800px;
-      background: #e0e0e0;
-      border-radius: 2px;
-      box-shadow: 9px 9px #263238, 13px 13px #c96f53, 8px 8px #e0e0e0 inset, 14px 14px #c96f53 inset;
-
-    }
-
-    table thead {
-      background: #90a4ae;
-    }
-
- 
-    .kuti{
-
-    margin: 4% auto;
-} 
- </style>
+  </style>
 </head>
 
 <body>
@@ -101,65 +68,58 @@ ob_start();
   <?php include 'header.php';
   ob_flush(); ?>
 
-<div class = "kuti">
+  <div class="blerje">
+    <table class="mdl-data-table" ;>
+      <thead>
 
+        <!-- jo numerike, majtas -->
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric" style="background-color:#b0bec5">EMER</th>
+          <th class="mdl-data-table__cell--non-numeric" style="background-color:#b0bec5">MBIEMER</th>
+          <th style="background-color:#b0bec5"></th>
+          <th class="mdl-data-table__cell--non-numeric" style="background-color:#b0bec5">KONTAKT</th>
+          <th style="background-color:#b0bec5"></th>
+          <th class="mdl-data-table__cell--non-numeric">ID E FATURES</th>
+          <th class="mdl-data-table__cell--non-numeric">ID E PRODUKTIT</th>
+          <th class="mdl-data-table__cell--non-numeric">PRODUKTI</th>
+          <th class="mdl-data-table__cell--non-numeric">CMIMI PER PRODUKT</th>
+          <th class="mdl-data-table__cell--non-numeric">SASIA E PRODUKTIT</th>
+          <th class="mdl-data-table__cell--non-numeric">CMIMI TOTAL I PRODUKTIT</th>
 
-      <table class="mdl-data-table";>
-  <thead>
-    
-      <!-- jo numerike, majtas -->
-      
-      <th class="mdl-data-table__cell--non-numeric" style="background-color:#b0bec5">EMER</th>
-      <th class="mdl-data-table__cell--non-numeric" style="background-color:#b0bec5">MBIEMER</th>
-      <th style="background-color:#b0bec5"></th>
-      <th class="mdl-data-table__cell--non-numeric" style="background-color:#b0bec5">KONTAKT</th>
-      <th style="background-color:#b0bec5"></th>
-      <th class="mdl-data-table__cell--non-numeric">ID E FATURES</th>
-      <th class="mdl-data-table__cell--non-numeric">ID E PRODUKTIT</th>
-      <th class="mdl-data-table__cell--non-numeric">PRODUKTI</th>
-      <th class="mdl-data-table__cell--non-numeric">CMIMI PER PRODUKT</th>
-      <th class="mdl-data-table__cell--non-numeric">SASIA E PRODUKTIT</th>
-      <th class="mdl-data-table__cell--non-numeric">CMIMI TOTAL I PRODUKTIT</th>
-    
-    </tr>
-  </thead>
-  <tbody>
- <?php $result = mysqli_query($conn, "SELECT * FROM sportisti 
+        </tr>
+      </thead>
+      <tbody>
+        <?php $result = mysqli_query($conn, "SELECT * FROM sportisti 
            JOIN fatura ON sportisti.ID_sportisti = fatura.ID_sportisti
            JOIN fatura_produkt ON fatura.ID_fatura = fatura_produkt.ID_fatura
-           JOIN produkte ON fatura_produkt.ID_produkte = produkte.ID_produkte"); 
+           JOIN produkte ON fatura_produkt.ID_produkte = produkte.ID_produkte");
 
-       while ($row = mysqli_fetch_array($result)) { ?>
- 
-    <!-- Row 1 -->
-    <tr>
-      <!-- class "mdl-data-table__cell--non-numeric", align values to left -->
-      <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Emer_sp']; ?></td>
-      <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Mbiemer_sp']; ?></td>
-      <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Cel_sp']; ?></td>
-      <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Adresa_sp']; ?></td>
-      <td class="mdl-data-table__cell--non-numeric"><?php echo $row['ZipKodi_sp']; ?></td>
-      <td                                          ><?php echo $row['ID_fatura']; ?></td>
-      <td                                          ><?php echo $row['ID_produkte']; ?></td>
-      <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Emri_prod']; ?></td>
-      <td><?php echo $row['Cmimi_prod']; ?> L</td>
-      <td><?php echo $row['Sasia_produkt']; ?></td>
-      <td><?php echo $row['Cmimi_prod']*$row['Sasia_produkt']; ?> Leke</td>
-      
-    
-    </tr>
-    
-  <?php } mysqli_close($conn); ?>
-  
-    
-  </tbody>
-</table>
-    
+        while ($row = mysqli_fetch_array($result)) { ?>
+
+          <!-- Row 1 -->
+          <tr>
+            <!-- class "mdl-data-table__cell--non-numeric", align values to left -->
+            <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Emer_sp']; ?></td>
+            <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Mbiemer_sp']; ?></td>
+            <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Cel_sp']; ?></td>
+            <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Adresa_sp']; ?></td>
+            <td class="mdl-data-table__cell--non-numeric"><?php echo $row['ZipKodi_sp']; ?></td>
+            <td><?php echo $row['ID_fatura']; ?></td>
+            <td><?php echo $row['ID_produkte']; ?></td>
+            <td class="mdl-data-table__cell--non-numeric"><?php echo $row['Emri_prod']; ?></td>
+            <td><?php echo $row['Cmimi_prod']; ?> L</td>
+            <td><?php echo $row['Sasia_produkt']; ?></td>
+            <td><?php echo $row['Cmimi_prod'] * $row['Sasia_produkt']; ?> Leke</td>
+          </tr>
+
+        <?php }
+        mysqli_close($conn); ?>
 
 
-
+      </tbody>
+    </table>
   </div>
-  </div>
+
 
   <script src="../../material.min.js"></script>
 

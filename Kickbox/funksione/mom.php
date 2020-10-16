@@ -1,12 +1,12 @@
-
 <?php
 $statusMsg = '';
 
-if(isset($_POST["krijoPROD"])){
+if (isset($_POST["krijoPROD"])) {
     krijoP();
 }
 
-function krijoP() {
+function krijoP()
+{
     global $conn;
     // File upload path
     $targetDir = "./images/";
@@ -37,7 +37,7 @@ function krijoP() {
                 }
             } else {
                 $statusMsg = "Sorry, there was an error uploading your file.";
-            } 
+            }
         } else {
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
         }
@@ -47,4 +47,3 @@ function krijoP() {
 }
 // Display status message
 echo $statusMsg;
-?>

@@ -44,4 +44,3 @@ function krijoFoto() {
 }
 // Display status message
 echo $statusMsg;
-?>
